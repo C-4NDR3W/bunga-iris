@@ -1,14 +1,11 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[ ]:
-
-
+import streamlit as st
 import pandas as pd
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import accuracy_score
-from sklearn.model_selection import train_test_split
+import numpy as np
+from prediction import predict
 import joblib
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
 
 # random seed
 seed = 42
@@ -38,8 +35,7 @@ y_pred = clf.predict(X_test)
 
 # calculate accuracy
 accuracy = accuracy_score(y_test, y_pred)
-print(f"Accuracy: {accuracy}")  # Accuracy: 0.91
+print(f"Accuracy: {accuracy}")  # Accuracy: ~0.91
 
 # save the model to disk
 joblib.dump(clf, "rf_model.sav")
-
